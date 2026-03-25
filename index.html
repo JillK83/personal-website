@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jillian Krebsbach</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <nav>
+        <div class="nav-logo">JK</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#case-studies">Case Studies</a>
+            <a href="#other-work">Other Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-status">Available for work ●</div>
+    </nav>
+
+    <section id="hero">
+        <h1 class="hero-title">JILLIAN<br>KREBSBACH</h1>
+        <div class="hero-sub">
+            <h3>Product Strategist & UX Partner</h3>
+            <h3>Based in NYC</h3>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-label">001 — About</div>
+        <h2>Making bold<br>things happen.</h2>
+        <div class="about-grid">
+            <div class="about-bio">
+                <p>I'm a creative professional based in NYC. I work at the intersection of design and technology, building experiences that leave an impression.</p>
+                <p>Currently open to freelance and full-time opportunities.</p>
+                <button class="btn" id="resumeBtn">View Resume</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Modal -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Resume</h2>
+            <div class="resume-section">
+                <h3>Experience</h3>
+                <div class="resume-item">
+                    <p><strong>Job Title</strong> — Company Name (Year–Year)</p>
+                    <p>What you did here.</p>
+                </div>
+            </div>
+            <div class="resume-section">
+                <h3>Education</h3>
+                <div class="resume-item">
+                    <p><strong>Degree</strong> — School Name (Year)</p>
+                </div>
+            </div>
+            <div class="resume-section">
+                <h3>Skills</h3>
+                <p>Skill 1, Skill 2, Skill 3</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="case-studies">
+        <div class="section-label">002 — Selected Projects</div>
+        <h2>Selected<br>Projects.</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://picsum.photos/800/500?random=10" alt="Project 1">
+                </div>
+                <div class="project-info">
+                    <h3>Brand Redesign — TechCorp</h3>
+                    <p>Full brand overhaul for a Series B startup.</p>
+                    <div class="project-tags">
+                        <span class="tag">Branding</span>
+                        <span class="tag">Strategy</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://picsum.photos/800/500?random=20" alt="Project 2">
+                </div>
+                <div class="project-info">
+                    <h3>App Design — FinanceApp</h3>
+                    <p>End-to-end UX for a fintech product. 4.8★ rating.</p>
+                    <div class="project-tags">
+                        <span class="tag">UX Design</span>
+                        <span class="tag">Mobile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="other-work">
+        <div class="section-label">003 — Other Work</div>
+        <h2>More<br>Projects.</h2>
+        <div class="other-grid">
+            <div class="other-item">
+                <span class="project-num">03</span>
+                <h3>Project Title</h3>
+                <p>Short description of the project.</p>
+                <span class="tag">Category</span>
+            </div>
+            <div class="other-item">
+                <span class="project-num">04</span>
+                <h3>Project Title</h3>
+                <p>Short description of the project.</p>
+                <span class="tag">Category</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-label">004 — Contact</div>
+        <h2>Let's<br>Talk.</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" placeholder="Your name">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea placeholder="Your message..."></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message →</button>
+        </form>
+    </section>
+
+    <script>
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        const cursorFollower = document.getElementById('cursor-follower');
+        
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX - 6 + 'px';
+            cursor.style.top = e.clientY - 6 + 'px';
+            
+            cursorFollower.style.left = e.clientX - 12 + 'px';
+            cursorFollower.style.top = e.clientY - 12 + 'px';
+        });
+
+        // Resume Modal
+        const resumeBtn = document.getElementById('resumeBtn');
+        const resumeModal = document.getElementById('resumeModal');
+        const closeBtn = document.querySelector('.close');
+
+        resumeBtn.addEventListener('click', () => {
+            resumeModal.style.display = 'block';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            resumeModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === resumeModal) {
+                resumeModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
